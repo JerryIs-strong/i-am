@@ -31,7 +31,7 @@
             }
         },
         "skills": {
-            "enabled": true,
+            "enabled": false,
             "breath": true,
             "language": [
                 "html5",
