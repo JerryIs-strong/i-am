@@ -14,14 +14,14 @@
         "icon": {
             "method": "local",
             "local": {
-                "url": "/src/img/f3fc14fea9fe664f5fcd6626887ef4c9.jpg"
+                "url": "src/img/f3fc14fea9fe664f5fcd6626887ef4c9.jpg"
             },
             "gravatar": {
                 "email": "heyajerry@gmail.com"
             }
         },
         "favicon": {
-            "default": "/src/img/33a3af0456db6757ff0fe195b33b5f20.jpg",
+            "default": "src/img/33a3af0456db6757ff0fe195b33b5f20.jpg",
             "dark_mode": {
                 "enabled": false,
                 "path": {
@@ -51,7 +51,7 @@
     },
     "display": {
         "background": {
-            "url": "/src/img/122436164_p0_master1200.jpg"
+            "url": "src/img/122436164_p0_master1200.jpg"
         },
         "title": {
             "method": "greeting",
@@ -115,7 +115,7 @@
                 "icon": {
                     "type": "image",
                     "fontawesome": "fa-brands fa-facebook-f",
-                    "image": "/src/img/facebook.jpg"
+                    "image": "src/img/facebook.jpg"
                 },
                 "description": "@heyajerry07",
                 "url": "https://www.facebook.com/heyajerry07",
@@ -163,7 +163,7 @@
                 "icon": {
                     "type": "image",
                     "fontawesome": "fa-brands fa-github",
-                    "image": "/src/img/github.png"
+                    "image": "src/img/github.png"
                 },
                 "description": "@JerryIs-strong",
                 "url": "https://github.com/JerryIs-strong",
@@ -189,7 +189,7 @@
                 "icon": {
                     "type": "image",
                     "fontawesome": "fa-brands fa-bilibili",
-                    "image": "/src/img/bilibili.png"
+                    "image": "src/img/bilibili.png"
                 },
                 "description": "@jerry7818",
                 "url": "https://space.bilibili.com/1772976161",
