@@ -5,7 +5,7 @@
     --font-secondary-color: #d6d6d6;
     --font-hover-color: #000;
     --font-sign-color: #ffffff15;
-    --mainBtn-color: #ffffff4d;
+    --mainBtn-color: #4040402b;
 }
 
 [dark="false"] {
@@ -15,7 +15,7 @@
     --font-secondary-color: #252525;
     --font-hover-color: #fff;
     --font-sign-color: #50505021;
-    --mainBtn-color: #0000004d;
+    --mainBtn-color: #fefefe30;
 }
 
 :root {
