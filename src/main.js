@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         infiniteLoop();
     }
     if (alert.enabled) {
-        const safeMessage = "You're browsing with https:// protocol, the connection is safe!";
-        const unsafeMessage = "It seems that you are not browsing using the https:// protocol. Your connection may be not secure!"
+        const safeMessage = "You're browsing with https protocol, the connection is safe!";
+        const unsafeMessage = "It seems that you are not browsing using the https protocol. Your connection may be not secure!"
         if (alert.https) {
             if (window.location.protocol === 'https:') {
                 showSnackbar("Security Guard", safeMessage, true, 8000, "fa-solid", "fa-lock");
