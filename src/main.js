@@ -3,7 +3,7 @@ let shareCounter = 0;
 let animeDelay = 0.2;
 
 document.addEventListener('DOMContentLoaded', () => {
-    const settings = JSON.parse(sessionStorage.getItem('setting'));
+    const settings = JSON.parse(sessionStorage.getItem('setting'))[0];
     const { profile, SEO, links, display, alert } = settings;
     const { skills, favicon } = profile;
     const { github_icon, music } = display.share;
@@ -69,8 +69,13 @@ function createLink(id, icon, target, url, linkName, description, onclick, isInB
         LinkBtnIcon.className = `link-icon ${icon.fontawesome}`;
         LinkBtnTitle.innerText = linkName;
         LinkBtnTitle.className = 'link-title';
-        LinkBtnDesc.innerText = description;
-        LinkBtnDesc.className = 'link-desc';
+
+        if (description) {
+            LinkBtnDesc.innerText = description;
+            LinkBtnDesc.className = 'link-desc';
+        }else{
+            LinkBtnDesc.remove();
+        }
         
         LinkInfoTab.appendChild(LinkBtnTitle);
         LinkInfoTab.appendChild(LinkBtnDesc);
@@ -372,7 +377,7 @@ function initializeLinks(linkSettings) {
             linkGroupMore.appendChild(closeButton);
         }
     } else {
-        console.warn("連結設置錯誤");
+        debug("連結設置錯誤", "warn");
         linkGroup.remove();
     }
 }

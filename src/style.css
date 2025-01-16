@@ -159,6 +159,7 @@ html {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
+    overflow-y: auto;
 }
 
 .mediaBtn_box .link-btn-box {
@@ -175,6 +176,7 @@ html {
     animation: btn-in 0.8s cubic-bezier(0.25, 0.04, 0, 0.89) forwards;
     opacity: 0;
     margin: 20px;
+    width: 230px;
 }
 
 .mediaBtn_box .link-btn-box:hover {
@@ -188,6 +190,7 @@ html {
     align-items: center;
     justify-content: center;
     margin: 10px;
+    width: 110px;
 }
 
 .mediaBtn_box .link-info-tab .link-title{
@@ -201,10 +204,6 @@ html {
     opacity: 0.6;
 }
 
-.mediaBtn_box .link-icon{
-    margin: 0 5px;
-}
-
 .mediaBtn_box #close {
     border: none;
     padding: 20px;
@@ -215,6 +214,7 @@ html {
     right: 20px;
     opacity: 1;
     animation: none !important;
+    width: unset;
 }
 
 #close,
@@ -585,10 +585,6 @@ a.githubProject:-webkit-any-link {
 
     div.notification_level {
         display: none;
-    }
-
-    div.mediaBtn_box {
-        overflow-y: auto;
     }
 
     div.mediaBtn_box .link-btn-box {
