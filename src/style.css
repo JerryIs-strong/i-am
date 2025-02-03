@@ -67,7 +67,6 @@ html {
     border-radius: 20px;
     backdrop-filter: var(--global-blur);
     -webkit-backdrop-filter: var(--global-blur);
-    backdrop-filter: var(--global-blur);
     max-width: 850px;
     height: 40vh;
     min-height: 250px;
@@ -415,6 +414,7 @@ a.githubProject:-webkit-any-link {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    backdrop-filter: var(--global-blur);
     -webkit-backdrop-filter: var(--global-blur);
     z-index: 998;
 }
