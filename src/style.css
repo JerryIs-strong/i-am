@@ -67,6 +67,7 @@ html {
     border-radius: 20px;
     backdrop-filter: var(--global-blur);
     -webkit-backdrop-filter: var(--global-blur);
+    backdrop-filter: var(--global-blur);
     max-width: 850px;
     height: 40vh;
     min-height: 250px;
