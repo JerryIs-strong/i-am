@@ -1,4 +1,5 @@
 @font-face {
-    font-family: Koss;
-    src: url(./XiaolaiSC-Regular.woff);
+    font-family: 'Koss';
+    src: url('./XiaolaiSC-Regular.woff') format('woff');
+    font-display: block;
 }

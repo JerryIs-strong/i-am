@@ -303,7 +303,6 @@ function Skills(skillSettings) {
         }
     } else {
         debug("技能已禁用", "info");
-        document.getElementById("skills").remove();
     }
 }
 
