@@ -177,7 +177,7 @@
                     "target": "blank"
                 }
             },
-            "Creator 🎞": {
+            "Creator 🔧": {
                 "link_1": {
                     "enable": true,
                     "name": "YouTube",
@@ -203,7 +203,7 @@
                     "target": "blank"
                 }
             },
-            "contact Me ✉": {
+            "contact Me 💻": {
                 "link_1": {
                     "enable": true,
                     "name": "Email",
