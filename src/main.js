@@ -1,6 +1,7 @@
 const shareElement = document.getElementById("share");
 let shareCounter = 0;
-let animeDelay = 0.2;
+let ContainerAnimeDelay = 0.2;
+let LinkAnimeDelay = 0.2;
 
 document.addEventListener('DOMContentLoaded', () => {
     const settings = JSON.parse(sessionStorage.getItem('setting'))[0];
@@ -8,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const { skills, favicon } = profile;
     const { github_icon, music } = display.share;
     const titleSettings = settings.display.title;
-    initializeProfile(profile, music, display, SEO, settings.plugins, titleSettings, favicon);
-    initializeLinks(links);
-    initializeSkills(skills);
-    initializeGithubIcon(github_icon, true);
-    if (music.enabled && github_icon.enabled) {
+    Profile(profile, music, display, SEO, settings.plugins, titleSettings, favicon);
+    Links(links);
+    Skills(skills);
+    GithubIcon(github_icon, true);
+    if (music.enable && github_icon.enable) {
         infiniteLoop();
     }
-    if (alert.enabled) {
+    if (alert.enable) {
         const safeMessage = "You're browsing with https protocol, the connection is safe!";
         const unsafeMessage = "It seems that you are not browsing using the https protocol. Your connection may be not secure!"
         if (alert.https) {
@@ -48,8 +49,8 @@ function createLink(id, icon, target, url, linkName, description, onclick, isInB
         LinkBtnWrapper.href = url;
     }
 
-    LinkBtnWrapper.style.animationDelay = `${animeDelay}s`;
-    animeDelay += 0.1;
+    LinkBtnWrapper.style.animationDelay = `${LinkAnimeDelay}s`;
+    LinkAnimeDelay += 0.1;
 
     if (onclick) {
         LinkBtnWrapper.onclick = (e) => {
@@ -58,12 +59,12 @@ function createLink(id, icon, target, url, linkName, description, onclick, isInB
         };
     }
 
-    if (isInBox){
+    if (isInBox) {
         const LinkInfoTab = document.createElement('div');
         const LinkBtnIcon = document.createElement('i');
         const LinkBtnTitle = document.createElement('a');
         const LinkBtnDesc = document.createElement('a');
-        
+
         LinkInfoTab.className = 'link-info-tab';
         LinkBtnWrapper.className = 'link-btn-box';
         LinkBtnIcon.className = `link-icon ${icon.fontawesome}`;
@@ -73,15 +74,15 @@ function createLink(id, icon, target, url, linkName, description, onclick, isInB
         if (description) {
             LinkBtnDesc.innerText = description;
             LinkBtnDesc.className = 'link-desc';
-        }else{
+        } else {
             LinkBtnDesc.remove();
         }
-        
+
         LinkInfoTab.appendChild(LinkBtnTitle);
         LinkInfoTab.appendChild(LinkBtnDesc);
         LinkBtnWrapper.appendChild(LinkBtnIcon);
         LinkBtnWrapper.appendChild(LinkInfoTab);
-    }else{
+    } else {
         LinkBtnWrapper.className = `link-btn-box ${icon.fontawesome}`;
     }
 
@@ -126,7 +127,7 @@ function greetUser(settings) {
 
 
 
-function initializeProfile(profile, music, display, SEO, plugins_list, titleSettings, favicon) {
+function Profile(profile, music, display, SEO, plugins_list, titleSettings, favicon) {
     const { icon } = profile;
     const { background, signature } = display;
     const { language, description, google_verification } = SEO;
@@ -167,10 +168,6 @@ function initializeProfile(profile, music, display, SEO, plugins_list, titleSett
         document.querySelector("link[rel='shortcut icon']").href = favicon.default;
         document.querySelector("link[rel='apple-touch-icon']").href = favicon.default;
     }
-    /* Open Graph */
-    // document.querySelector('meta[property="og:title"]').setAttribute('content', profile.website_name);
-    // document.querySelector('meta[property="og:url"]').setAttribute('content', profile.url);
-    // document.querySelector('meta[property="og:description"]').setAttribute('content', description);
 
     Signature(signature);
     Music(music, musicSetting);
@@ -179,9 +176,9 @@ function initializeProfile(profile, music, display, SEO, plugins_list, titleSett
     HolderIcon(icon, plugins_list);
 }
 
-function Signature({ enabled, content, auto_hide }) {
+function Signature({ enable, content, auto_hide }) {
     const signElement = document.getElementById('sign');
-    if (enabled) {
+    if (enable) {
         signElement.innerText = content;
         if (auto_hide) {
             signElement.classList.add("auto-hide");
@@ -196,7 +193,7 @@ function Signature({ enabled, content, auto_hide }) {
 
 function Music(music, musicSetting) {
     const musicElement = document.getElementById('MusicName');
-    if (music.enabled) {
+    if (music.enable) {
         const musicNumber = Object.keys(musicSetting).length;
         const musicRandom = Math.floor(Math.random() * musicNumber) + 1;
         const musicKey = musicSetting[`music_${musicRandom}`];
@@ -233,7 +230,7 @@ function Background(backgroundUrl) {
 
 function Theme(darkMode, favicon) {
     document.documentElement.setAttribute("dark", darkMode ? "true" : "false");
-    if (favicon.enabled != false) {
+    if (favicon.enable != false) {
         if (!darkMode) {
             document.querySelector("link[rel='shortcut icon']").href = favicon.path.light;
             document.querySelector("link[rel='apple-touch-icon']").href = favicon.path.light;
@@ -256,10 +253,9 @@ function HolderIcon(holderIcon) {
     }
 }
 
-function initializeGithubIcon(github_icon, margin = false) {
+function GithubIcon(github_icon, margin = false) {
     const githubProject = document.getElementById("github");
-    
-    if (github_icon.enabled) {
+    if (github_icon.enable) {
         if (margin) {
             githubProject.classList.add("github-loop");
         }
@@ -272,12 +268,29 @@ function initializeGithubIcon(github_icon, margin = false) {
     }
 }
 
-function initializeSkills(skillSettings) {
+function Skills(skillSettings) {
     const languageSkills = skillSettings.language || {};
     const learningSkills = skillSettings.learning || {};
-    const languageContainer = document.getElementById("language");
-    const learningContainer = document.getElementById("learning");
-    if (skillSettings.enabled) {
+    if (skillSettings.enable) {
+        const skillWrapper = document.createElement('div');
+        skillWrapper.id = "skills";
+        skillWrapper.className = "skills";
+
+        const languageWrapper = document.createElement('div');
+        languageWrapper.id = "language";
+        languageWrapper.className = "language";
+
+        const learningWrapper = document.createElement('div');
+        learningWrapper.id = "learning";
+        learningWrapper.className = "learning";
+
+        skillWrapper.appendChild(languageWrapper);
+        skillWrapper.appendChild(learningWrapper);
+        document.getElementById('text').appendChild(skillWrapper);
+
+        const languageContainer = document.getElementById("language");
+        const learningContainer = document.getElementById("learning");
+
         if (skillSettings.language || skillSettings.learning) {
             Object.keys(languageSkills).forEach(key => {
                 languageContainer.appendChild(createSkills(languageSkills[key], skillSettings.breath));
@@ -298,7 +311,9 @@ function LinkBox(action) {
     const box = document.getElementById('mediaBtn_wrapper_box');
     const animation = action === "open" ? "box-in" : "box-out";
     box.style.display = action === "open" ? "flex" : "none";
-    box.scrollTop = 0;
+    if (action === "open") {
+        box.scrollTop = 0;
+    }
     box.style.animation = `${animation} 0.5s cubic-bezier(0.25, 0.04, 0, 0.89) forwards`;
 }
 
@@ -315,10 +330,12 @@ function createContainer(header) {
     btnWrapper.id = `${header}_category_btn_wrapper`;
     container.appendChild(headerElement);
     container.appendChild(btnWrapper);
+    container.style.animationDelay = `${ContainerAnimeDelay}s`;
+    ContainerAnimeDelay += 0.1;
     return container;
 }
 
-function initializeLinks(linkSettings) {
+function Links(linkSettings) {
     const urlParams = new URLSearchParams(window.location.search);
     const linkGroup = document.getElementById('mediaBtn_wrapper');
     const linkGroupMore = document.getElementById('mediaBtn_wrapper_box');
@@ -333,7 +350,7 @@ function initializeLinks(linkSettings) {
                 InvalidLink.push(linkDB);
             }
             Object.entries(linkDB).forEach(([key, link]) => {
-                if (link.enabled && link.name != urlParams.get('media') && key.includes("link_")) {
+                if (link.enable && link.name != urlParams.get('media') && key.includes("link_")) {
                     if (linkNum < 2) {
                         linkGroup.appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description));
                     } else {
@@ -347,7 +364,7 @@ function initializeLinks(linkSettings) {
         if (InvalidLink.length > 0) {
             linkGroupMore.appendChild(createContainer("more"));
             Object.entries(InvalidLink).forEach(([key, link]) => {
-                if (link.enabled && link.name !== urlParams.get('media')) {
+                if (link.enable && link.name !== urlParams.get('media')) {
                     if (linkNum < 2) {
                         linkGroup.appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description));
                     } else {

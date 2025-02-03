@@ -16,12 +16,9 @@ function debug(DebugMessage, action = 'info') {
 
 function showSnackbar(processName, message, scroll = true, duration = 3000, iconType = "fa-regular", iconName = "fa-bell", level = "info") {
     const wrapper = document.getElementById('notification');
-    let blackList = JSON.parse(localStorage.getItem('hiddenMessage')) || [];
-    const token = md5(processName);
 
     const main = document.createElement('div');
     main.classList.add('notification_wrapper', 'snackbar');
-    main.id = "notification_" + token;
 
     const iconDiv = document.createElement('div');
     iconDiv.className = "notification_icon";
@@ -41,8 +38,6 @@ function showSnackbar(processName, message, scroll = true, duration = 3000, icon
     const closeBtn = document.createElement('i');
     closeBtn.classList.add('fa-solid', 'fa-xmark', 'notification_close');
     closeBtn.onclick = function () {
-        blackList.push("notification_" + token);
-        localStorage.setItem('hiddenMessage', JSON.stringify(blackList));
         main.style.display = "none";
     };
 
@@ -79,15 +74,7 @@ function showSnackbar(processName, message, scroll = true, duration = 3000, icon
     main.appendChild(snackbar);
     wrapper.appendChild(main);
     
-    if(blackList !== null){
-        if(blackList.includes(main.id)){
-            main.style.display = "none";
-        }else{
-            main.classList.add('snackbar-show');
-        }
-    }else{
-        localStorage.setItem('hiddenMessage', JSON.stringify([]));
-    }
+    main.classList.add('snackbar-show');
 
     setTimeout(function () {
         main.classList.remove('snackbar-show');

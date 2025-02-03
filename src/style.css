@@ -22,6 +22,10 @@
     --global-blur: blur(20px);
 }
 
+*{
+    font-family: 'Koss', sans-serif;
+}
+
 body,
 html {
     margin: 0;
@@ -160,6 +164,7 @@ html {
     height: 100%;
     width: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .mediaBtn_box .link-btn-box {
@@ -177,6 +182,7 @@ html {
     opacity: 0;
     margin: 20px;
     width: 230px;
+    height: 68px;
 }
 
 .mediaBtn_box .link-btn-box:hover {
@@ -215,6 +221,7 @@ html {
     opacity: 1;
     animation: none !important;
     width: unset;
+    height: unset;
 }
 
 #close,
@@ -277,18 +284,6 @@ html {
     width: fit-content;
     padding: 5px 10px;
     font-size: 18px;
-}
-
-.box_container .header::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: var(--font-color);
-    border-radius: 30px;
-    margin-top: 5px;
-    box-shadow: 0 0 10px var(--font-color), 0 0 20px var(--font-color), 0 0 30px var(--font-color);
-    background: linear-gradient(90deg, var(--font-color) 0%, var(--font-color) 50%, transparent 50%);
 }
 
 .btn_wrapper {
@@ -493,6 +488,8 @@ a.githubProject:-webkit-any-link {
     animation: snackOut 0.5s cubic-bezier(0.25, 0.04, 0, 0.89) forwards;
 }
 
+/* Optimize for mobile */
+
 @media screen and (max-width: 590px) {
     #main {
         flex-direction: column;
@@ -619,10 +616,17 @@ a.githubProject:-webkit-any-link {
         z-index: 20 !important;
     }
 
+    div.box_container{
+        transform: translateX(120%);
+        animation: containerFade-In 0.8s ease-in-out forwards;
+    }
+
     div.box_container .header{
         font-size: 15px;
     }
 }
+
+/* Animation */
 
 @keyframes in {
 
@@ -843,5 +847,15 @@ a.githubProject:-webkit-any-link {
     100% {
         display: none;
         opacity: 0;
+    }
+}
+
+@keyframes containerFade-In {
+    0% {
+        transform: translateX(120%);
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }
