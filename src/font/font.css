@@ -1,5 +1,8 @@
 @font-face {
-    font-family: 'Koss';
-    src: url('./XiaolaiSC-Regular.woff') format('woff');
-    font-display: block;
+    font-family: 'Iansui';
+    src: url('Iansui-Regular.woff2') format('woff2'),
+        url('Iansui-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
