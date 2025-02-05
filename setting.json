@@ -5,7 +5,7 @@
             "subtitle": "哈嘍 很高興遇見你!",
             "name": "jerry.7z",
             "tag_intro": {
-                "name": "auto",
+                "name": true,
                 "self_tag": [
                     "社恐",
                     "Neverland",
@@ -16,9 +16,6 @@
                 "method": "local",
                 "local": {
                     "url": "./src/img/82922928496af5da57c553f16a3620fe.jpg"
-                },
-                "gravatar": {
-                    "email": ""
                 }
             },
             "favicon": {
@@ -30,19 +27,6 @@
                         "dark": "/favicon-dark.png"
                     }
                 }
-            },
-            "skills": {
-                "enable": false,
-                "breath": true,
-                "language": [
-                    "html5",
-                    "css3",
-                    "js"
-                ],
-                "learning": [
-                    "python",
-                    "linux"
-                ]
             }
         },
         "SEO": {
@@ -52,7 +36,7 @@
         },
         "display": {
             "background": {
-                "url": "./src/img/122436164_p0_master1200.jpg"
+                "url": "./src/img/38183202_p0.jpg"
             },
             "title": {
                 "method": "greeting",

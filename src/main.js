@@ -6,12 +6,10 @@ let LinkAnimeDelay = 0.2;
 document.addEventListener('DOMContentLoaded', () => {
     const settings = JSON.parse(sessionStorage.getItem('setting'))[0];
     const { profile, SEO, links, display, alert } = settings;
-    const { skills, favicon } = profile;
     const { github_icon, music } = display.share;
     const titleSettings = settings.display.title;
-    Profile(profile, music, display, SEO, settings.plugins, titleSettings, favicon);
+    Profile(profile, music, display, SEO, settings.plugins, titleSettings);
     Links(links);
-    Skills(skills);
     GithubIcon(github_icon, true);
     if (music.enable && github_icon.enable) {
         infiniteLoop();
@@ -90,13 +88,6 @@ function createLink(id, icon, target, url, linkName, description, onclick, isInB
     return LinkBtnWrapper;
 }
 
-function createSkills(name, breath) {
-    const skillBtn = document.createElement('i');
-    const styleTemp = "fa-brands fa-";
-    skillBtn.className = `${styleTemp}${name} skill-icon${breath ? ' skill-breath' : ''}`;
-    return skillBtn;
-}
-
 function infiniteLoop() {
     setTimeout(() => {
         shareElement.scrollTop = shareCounter === 0 ? 100 : 0;
@@ -127,30 +118,27 @@ function greetUser(settings) {
 
 
 
-function Profile(profile, music, display, SEO, plugins_list, titleSettings, favicon) {
-    const { icon } = profile;
+function Profile(profile, music, display, SEO, plugins_list, titleSettings) {
+    const { icon, favicon, tag_intro } = profile;
     const { background, signature } = display;
     const { language, description, google_verification } = SEO;
     const { music_data: musicSetting } = music;
     const darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const tagElement = document.getElementById('tagContent');
-    const tagSetting = profile.tag_intro.self_tag;
-    const tagName = profile.tag_intro.name;
+    const tagSetting = tag_intro.self_tag;
+    const nameElement = document.getElementById('name');
+
     /* Basic HTML Elements */
     document.documentElement.lang = language || 'zh-TW';
     document.title = profile.website_name;
     document.getElementById('title').innerText = titleSettings.method === "greeting" ? greetUser(titleSettings.advanced_settings) : `HEY! ${profile.name}`;
     document.getElementById('description').innerText = profile.subtitle;
+    
     /* Main: tag intro */
-    if (profile.name) {
-        const nameElement = document.getElementById('name');
-        if (nameElement) {
-            if (tagName === 'auto') {
-                nameElement.innerText = `@${profile.name}`;
-            } else {
-                nameElement.remove();
-            }
-        }
+    if (tag_intro.name) {
+        nameElement.innerText = `@${profile.name}`;
+    } else {
+        nameElement.remove();
     }
 
     if (tagSetting) {
@@ -161,6 +149,7 @@ function Profile(profile, music, display, SEO, plugins_list, titleSettings, favi
             tagElement.remove();
         }
     }
+
     /* Meta Tags */
     document.querySelector('meta[name="description"]')?.setAttribute('content', description || 'Powered by JerryIs-strong/Arona');
     document.querySelector('meta[name="google-site-verification"]')?.setAttribute('content', google_verification || '');
@@ -186,8 +175,8 @@ function Signature({ enable, content, auto_hide }) {
             debug("個性簽名[auto-hide]已禁用", "info");
         }
     } else {
-        signElement.remove();
         debug("個性簽名已禁用", "info");
+        signElement.remove();
     }
 }
 
@@ -225,6 +214,7 @@ function Background(backgroundUrl) {
         backgroundElement.style.backgroundImage = `url(${backgroundUrl})`;
     } else {
         debug("本地壁紙設置錯誤", "warn");
+        document.getElementById('background').remove();
     }
 }
 
@@ -245,11 +235,9 @@ function HolderIcon(holderIcon) {
     const imgElement = document.getElementById('img');
     if (holderIcon.method === "local") {
         imgElement.style.backgroundImage = `url("${holderIcon.local.url}")`;
-    } else if (holderIcon.method === "gravatar") {
-        const gravatarUrl = `https://www.gravatar.com/avatar/${md5(holderIcon.gravatar.email)}?size=500`;
-        imgElement.style.backgroundImage = `url("${gravatarUrl}")`;
     } else {
         debug("頭像設置錯誤", "warn");
+        document.getElementById('img').remove();
     }
 }
 
@@ -265,44 +253,6 @@ function GithubIcon(github_icon, margin = false) {
     } else {
         debug("Github Icon已禁用", "info");
         document.getElementById("github").remove();
-    }
-}
-
-function Skills(skillSettings) {
-    const languageSkills = skillSettings.language || {};
-    const learningSkills = skillSettings.learning || {};
-    if (skillSettings.enable) {
-        const skillWrapper = document.createElement('div');
-        skillWrapper.id = "skills";
-        skillWrapper.className = "skills";
-
-        const languageWrapper = document.createElement('div');
-        languageWrapper.id = "language";
-        languageWrapper.className = "language";
-
-        const learningWrapper = document.createElement('div');
-        learningWrapper.id = "learning";
-        learningWrapper.className = "learning";
-
-        skillWrapper.appendChild(languageWrapper);
-        skillWrapper.appendChild(learningWrapper);
-        document.getElementById('text').appendChild(skillWrapper);
-
-        const languageContainer = document.getElementById("language");
-        const learningContainer = document.getElementById("learning");
-
-        if (skillSettings.language || skillSettings.learning) {
-            Object.keys(languageSkills).forEach(key => {
-                languageContainer.appendChild(createSkills(languageSkills[key], skillSettings.breath));
-            });
-            Object.keys(learningSkills).forEach(key => {
-                learningContainer.appendChild(createSkills(learningSkills[key], skillSettings.breath));
-            });
-        } else {
-            document.getElementById("skills").remove();
-        }
-    } else {
-        debug("技能已禁用", "info");
     }
 }
 
