@@ -104,9 +104,8 @@
                     "enable": true,
                     "name": "Facebook",
                     "icon": {
-                        "type": "image",
-                        "fontawesome": "fa-brands fa-facebook-f",
-                        "image": "./src/img/facebook.jpg"
+                        "type": "fontawesome",
+                        "fontawesome": "fa-brands fa-facebook-f"
                     },
                     "description": "@heyajerry07",
                     "url": "https://www.facebook.com/heyajerry07",
@@ -117,8 +116,7 @@
                     "name": "Instagram",
                     "icon": {
                         "type": "fontawesome",
-                        "fontawesome": "fa fa-instagram",
-                        "image": false
+                        "fontawesome": "fa fa-instagram"
                     },
                     "description": "@hwj7818_ynz",
                     "url": "https://www.instagram.com/hwj7818_ynz/",
@@ -129,8 +127,7 @@
                     "name": "X(Twitter)",
                     "icon": {
                         "type": "fontawesome",
-                        "fontawesome": "fa-brands fa-x-twitter",
-                        "image": false
+                        "fontawesome": "fa-brands fa-x-twitter"
                     },
                     "description": "@jerryis_strong",
                     "url": "https://x.com/jerryis_strong",
@@ -141,8 +138,7 @@
                     "name": "Blog",
                     "icon": {
                         "type": "fontawesome",
-                        "fontawesome": "fa-solid fa-blog",
-                        "image": false
+                        "fontawesome": "fa-solid fa-blog"
                     },
                     "description": "Official blog page",
                     "url": "https://jerryis-strong.github.io/",
@@ -152,9 +148,8 @@
                     "enable": true,
                     "name": "Github",
                     "icon": {
-                        "type": "image",
-                        "fontawesome": "fa-brands fa-github",
-                        "image": "./src/img/github.png"
+                        "type": "fontawesome",
+                        "fontawesome": "fa-brands fa-github"
                     },
                     "description": "@JerryIs-strong",
                     "url": "https://github.com/JerryIs-strong",
@@ -167,8 +162,7 @@
                     "name": "YouTube",
                     "icon": {
                         "type": "fontawesome",
-                        "fontawesome": "fa fa-youtube",
-                        "image": false
+                        "fontawesome": "fa fa-youtube"
                     },
                     "description": "@jerryis-strong",
                     "url": "https://www.youtube.com/channel/UCb4AAgayzeNgj01ULpDDzjg",
@@ -178,9 +172,8 @@
                     "enable": true,
                     "name": "Bilibili",
                     "icon": {
-                        "type": "image",
-                        "fontawesome": "fa-brands fa-bilibili",
-                        "image": "./src/img/bilibili.png"
+                        "type": "fontawesome",
+                        "fontawesome": "fa-brands fa-bilibili"
                     },
                     "description": "@jerry7818",
                     "url": "https://space.bilibili.com/1772976161",
@@ -193,8 +186,7 @@
                     "name": "Email",
                     "icon": {
                         "type": "fontawesome",
-                        "fontawesome": "fa-solid fa-envelope",
-                        "image": false
+                        "fontawesome": "fa-solid fa-envelope"
                     },
                     "description": false,
                     "url": "mailto:heyajerry@gmail.com",

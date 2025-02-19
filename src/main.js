@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function createLink(id, icon, target, url, linkName, description, onclick, isInBox = false) {
     const LinkBtnWrapper = document.createElement('a');
+    console.log(icon);
+    
 
     Object.assign(LinkBtnWrapper, {
         id,
@@ -62,10 +64,18 @@ function createLink(id, icon, target, url, linkName, description, onclick, isInB
         const LinkBtnIcon = document.createElement('i');
         const LinkBtnTitle = document.createElement('a');
         const LinkBtnDesc = document.createElement('a');
-
         LinkInfoTab.className = 'link-info-tab';
         LinkBtnWrapper.className = 'link-btn-box';
-        LinkBtnIcon.className = `link-icon ${icon.fontawesome}`;
+        if(icon.type === "fontawesome") {
+            LinkBtnIcon.className = `link-icon ${icon.fontawesome}`;
+        }else if(icon.type === "auto") {
+            if(icon.fontawesome){
+                LinkBtnIcon.className = `link-icon ${icon.fontawesome}`;
+            }else{
+                LinkBtnIcon.className = "link-icon-text";
+                LinkBtnIcon.innerText = linkName.charAt(0).toUpperCase()
+            }
+        }
         LinkBtnTitle.innerText = linkName;
         LinkBtnTitle.className = 'link-title';
 
