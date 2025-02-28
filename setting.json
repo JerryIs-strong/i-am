@@ -134,7 +134,7 @@
                     "target": "blank"
                 },
                 "link_4": {
-                    "enable": true,
+                    "enable": false,
                     "name": "Blog",
                     "icon": {
                         "type": "fontawesome",
@@ -201,7 +201,7 @@
         },
         "alert": {
             "enable": true,
-            "https": true,
+            "https": false,
             "data": {}
         }
     }
