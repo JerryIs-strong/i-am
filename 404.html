@@ -74,7 +74,7 @@
             outline: none;
         }
 
-        .back-to-home {
+        .tips-btn {
             display: block;
             text-align: center;
             color: #c8c8c8;
@@ -85,11 +85,25 @@
             border-radius: 30px;
             width: fit-content;
             padding: 5px 15px;
-            margin: 16px 0 10px 0;
+            margin: 16px 10px 10px 0;
         }
 
-        .back-to-home:hover {
+        .tips-btn:last-child {
+            margin-right: 0;
+        }
+        
+        .tips-btn:hover {
             color: #fafafa;
+        }
+
+        .tips {
+            display: flex;
+        }
+
+        @media screen and (max-width: 600px) {
+            .tips-btn:not(:first-child) {
+                display: none;
+            }
         }
 
         @keyframes bounce {
@@ -118,12 +132,31 @@
         <div class="terminal-output">
             Oops, it looks like the page you're looking for doesn't exist. Can I help you find what you're looking for?
         </div>
-        <a href="/" class="back-to-home"><i class="fa-regular fa-lightbulb"></i> Back to Home</a>
+        <div class="tips">
+            <a href="/" class="tips-btn"><i class="fa-regular fa-lightbulb"></i> Back to Home</a>
+            <a href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Status/404" class="tips-btn"><i class="fa-regular fa-lightbulb"></i> What happened</a>
+        </div>
         <div class="terminal-input">
             <span>$</span>
             <input type="text" placeholder="Type your command..." />
         </div>
     </div>
+
+    <script>
+        const input = document.querySelector('.terminal-input input');
+        input.addEventListener('keypress', function(e) {
+            const total = input.value.length;
+            if (e.key === 'Enter') {
+                let interval = setInterval(() => {
+                    if (input.value.length > 0) {
+                        input.value = input.value.slice(0, -1);
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 100);
+            }
+        });
+    </script>
 </body>
 
 </html>
