@@ -332,15 +332,19 @@ function Links(linkSettings) {
         });
 
         if (InvalidLink.length > 0) {
-            linkGroupMore.appendChild(createContainer("more"));
+            linkGroupMore.appendChild(createContainer("untitled"));
             Object.entries(InvalidLink).forEach(([key, link]) => {
                 if (link.enable && link.name !== urlParams.get('media')) {
-                    if (linkNum < 2) {
-                        linkGroup.appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description));
-                    } else {
-                        document.getElementById(`more_category_btn_wrapper`).appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description, false, true));
+                    if(InvalidLink.Ignore){
+                        document.getElementById(`${category}_category_btn_wrapper`).appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description, false, true));
+                    }else{
+                        if (linkNum < 2) {
+                            linkGroup.appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description));
+                        } else {
+                            document.getElementById(`untitled_category_btn_wrapper`).appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description, false, true));
+                        }
+                        linkNum++;
                     }
-                    linkNum++;
                 }
             });
         }
