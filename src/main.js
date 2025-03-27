@@ -36,8 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function createLink(id, icon, target, url, linkName, description, onclick, isInBox = false) {
     const LinkBtnWrapper = document.createElement('a');
-    console.log(icon);
-    
 
     Object.assign(LinkBtnWrapper, {
         id,
@@ -66,6 +64,19 @@ function createLink(id, icon, target, url, linkName, description, onclick, isInB
         const LinkBtnDesc = document.createElement('a');
         LinkInfoTab.className = 'link-info-tab';
         LinkBtnWrapper.className = 'link-btn-box';
+
+        LinkBtnTitle.innerText = linkName;
+        LinkBtnTitle.className = 'link-title';
+        LinkInfoTab.appendChild(LinkBtnTitle);
+
+        if (description) {
+            LinkBtnDesc.innerText = description;
+            LinkBtnDesc.className = 'link-desc';
+            LinkInfoTab.appendChild(LinkBtnDesc);
+        } else {
+            LinkBtnDesc.remove();
+        }
+
         if(icon.type === "fontawesome") {
             LinkBtnIcon.className = `link-icon ${icon.fontawesome}`;
         }else if(icon.type === "auto") {
@@ -75,19 +86,14 @@ function createLink(id, icon, target, url, linkName, description, onclick, isInB
                 LinkBtnIcon.className = "link-icon-text";
                 LinkBtnIcon.innerText = linkName.charAt(0).toUpperCase()
             }
-        }
-        LinkBtnTitle.innerText = linkName;
-        LinkBtnTitle.className = 'link-title';
-
-        if (description) {
-            LinkBtnDesc.innerText = description;
-            LinkBtnDesc.className = 'link-desc';
-        } else {
-            LinkBtnDesc.remove();
+        }else if(icon.type === "image"){
+            LinkBtnTitle.remove();
+            const LinkBtnImg = document.createElement('img');
+            LinkBtnWrapper.classList.add('link-image');
+            LinkBtnImg.src = icon.path;
+            LinkBtnWrapper.appendChild(LinkBtnImg);
         }
 
-        LinkInfoTab.appendChild(LinkBtnTitle);
-        LinkInfoTab.appendChild(LinkBtnDesc);
         LinkBtnWrapper.appendChild(LinkBtnIcon);
         LinkBtnWrapper.appendChild(LinkInfoTab);
     } else {
@@ -310,12 +316,17 @@ function Links(linkSettings) {
             }
             Object.entries(linkDB).forEach(([key, link]) => {
                 if (link.enable && link.name != urlParams.get('media') && key.includes("link_")) {
-                    if (linkNum < 2) {
-                        linkGroup.appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description));
-                    } else {
+                    console.log(linkDB);
+                    if(linkDB.Ignore){
                         document.getElementById(`${category}_category_btn_wrapper`).appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description, false, true));
+                    }else{
+                        if (linkNum < 2) {
+                            linkGroup.appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description));
+                        } else {
+                            document.getElementById(`${category}_category_btn_wrapper`).appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description, false, true));
+                        }
+                        linkNum++;
                     }
-                    linkNum++;
                 }
             });
         });

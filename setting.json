@@ -99,6 +99,64 @@
             "blur": true
         },
         "links": {
+            "💜🏰": {
+                "link_1": {
+                    "enable": true,
+                    "name": "yeonini",
+                    "icon": {
+                        "type": "image",
+                        "path": "src/img/minini/IMG_20250118_225631_249.jpg"
+                    },
+                    "description": "",
+                    "url": "",
+                    "target": "self"
+                },
+                "link_2": {
+                    "enable": true,
+                    "name": "minini",
+                    "icon": {
+                        "type": "image",
+                        "path": "src/img/minini/IMG_20250118_225633_506.jpg"
+                    },
+                    "description": "",
+                    "url": "",
+                    "target": "self"
+                },
+                "link_3": {
+                    "enable": true,
+                    "name": "sonini",
+                    "icon": {
+                        "type": "image",
+                        "path": "src/img/minini/IMG_20250118_225637_401.jpg"
+                    },
+                    "description": "",
+                    "url": "",
+                    "target": "self"
+                },
+                "link_4": {
+                    "enable": true,
+                    "name": "woonini",
+                    "icon": {
+                        "type": "image",
+                        "path": "src/img/minini/IMG_20250118_225644_089.jpg"
+                    },
+                    "description": "",
+                    "url": "",
+                    "target": "self"
+                },
+                "link_5": {
+                    "enable": true,
+                    "name": "shunini",
+                    "icon": {
+                        "type": "image",
+                        "path": "src/img/minini/IMG_20250118_225647_422.jpg"
+                    },
+                    "description": "",
+                    "url": "",
+                    "target": "self"
+                },
+                "Ignore": true
+            },
             "social 🎠": {
                 "link_1": {
                     "enable": true,

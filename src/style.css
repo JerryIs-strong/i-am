@@ -246,6 +246,26 @@ html {
     box-shadow: none;
 }
 
+.link-image{
+    width: 50px !important;
+    height: 50px !important;
+    border: 3px solid var(--font-color) !important;
+    padding: 5px !important;
+    display: block !important;
+    cursor: pointer;
+    border-radius: 40px !important;
+}
+
+.link-image:hover{
+    background-color: unset !important;
+    border: 3px solid #722dac !important;
+}
+
+.link-image img{
+    width: 50px;
+    height: 50px;
+}
+
 .mediaBtn a {
     border-radius: 30px;
     padding: 16px;
