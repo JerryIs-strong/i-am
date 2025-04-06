@@ -36,7 +36,7 @@
         },
         "display": {
             "background": {
-                "url": "./src/img/132156561.png"
+                "url": "linear-gradient(225deg, #000000, #515151)"
             },
             "title": {
                 "method": "greeting",
