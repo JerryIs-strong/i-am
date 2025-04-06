@@ -226,7 +226,7 @@ function Music(music, musicSetting) {
 
 function Background(backgroundUrl) {
     const backgroundElement = document.getElementById('background');
-    backgroundElement.style.backgroundImage = "backgroundUrl";
+    backgroundElement.style.backgroundImage = backgroundUrl;
     // if (backgroundUrl.length > 0 && backgroundUrl.includes('/')) {
     //     backgroundElement.style.backgroundImage = `url(${backgroundUrl})`;
     // } else {
