@@ -15,7 +15,7 @@
             "icon": {
                 "method": "local",
                 "local": {
-                    "url": "./src/img/82922928496af5da57c553f16a3620fe.jpg"
+                    "url": "./src/img/18811ecdb57881489e22cded6b4fe20f.jpg"
                 }
             },
             "favicon": {
@@ -36,7 +36,7 @@
         },
         "display": {
             "background": {
-                "url": "./src/img/38183202_p0.jpg"
+                "url": "./src/img/132156561.png"
             },
             "title": {
                 "method": "greeting",
@@ -234,7 +234,7 @@
                         "fontawesome": "fa-brands fa-bilibili"
                     },
                     "description": "@jerry7818",
-                    "url": "https://space.bilibili.com/1772976161",
+                    "url": "https://space.bilibili.com/3546846200859472",
                     "target": "blank"
                 }
             },

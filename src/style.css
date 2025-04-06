@@ -135,6 +135,7 @@ html {
 .main .text h1 {
     margin-bottom: 5px;
     color: var(--font-color);
+    margin: 20px 15px 5px 15px;
 }
 
 .main .text h2 {
@@ -215,13 +216,12 @@ html {
     padding: 20px;
     border-radius: 30px;
     background-color: var(--background-color);
-    position: fixed;
-    top: 20px;
-    right: 20px;
     opacity: 1;
     animation: none !important;
-    width: unset;
     height: unset;
+    margin: 20px;
+    width: 100%;
+    max-width: 950px;
 }
 
 #close,
@@ -616,17 +616,7 @@ a.githubProject:-webkit-any-link {
         padding: 0;
         margin: 10px;
         width: 100%;
-        border-radius: 35px;
-    }
-
-    div.mediaBtn_box #close {
-        top: unset;
-        right: unset;
-        padding: unset;
-        margin: 20px;
-        padding: 15px 0;
-        position: relative;
-        width: 100%;
+        border-radius: 22px;
     }
 
     .mediaBtn_box .btnImage {
