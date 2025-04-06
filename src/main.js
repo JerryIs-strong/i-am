@@ -317,7 +317,6 @@ function Links(linkSettings) {
             }
             Object.entries(linkDB).forEach(([key, link]) => {
                 if (link.enable && link.name != urlParams.get('media') && key.includes("link_")) {
-                    console.log(linkDB);
                     if(linkDB.Ignore){
                         document.getElementById(`${category}_category_btn_wrapper`).appendChild(createLink(key, link.icon, link.target, link.url, link.name, link.description, false, true));
                     }else{
