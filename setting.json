@@ -36,7 +36,7 @@
         },
         "display": {
             "background": {
-                "url": "linear-gradient(225deg, #000000, #515151)"
+                "url": "linear-gradient(225deg, rgb(28 28 28), rgb(121 121 121))"
             },
             "title": {
                 "method": "greeting",
